@@ -4,7 +4,7 @@
 
 Name:             %{?scl_prefix}%{pkg_name}
 Version:          3.1.1
-Release:          10.9%{?dist}
+Release:          10.10%{?dist}
 Summary:          Experimental API extending basic StAX implementation
 License:          BSD
 URL:              http://docs.codehaus.org/display/WSTX/StAX2
@@ -33,7 +33,7 @@ This package contains the API documentation for %{pkg_name}.
 
 %prep
 %setup -q -c -n %{pkg_name}-%{version}
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 # fixing incomplete source directory structure
 mkdir -p src/main/java
@@ -43,13 +43,13 @@ cp %{SOURCE1} pom.xml
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_build
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_install
 %{?scl:EOF}
@@ -59,6 +59,9 @@ set -e -x
 %files javadoc -f .mfiles-javadoc
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 3.1.1-10.10
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 3.1.1-10.9
 - maven33 rebuild
 

@@ -4,7 +4,7 @@
 
 Name:             %{?scl_prefix}%{pkg_name}
 Version:          3.1.1
-Release:          10.10%{?dist}
+Release:          10.11%{?dist}
 Summary:          Experimental API extending basic StAX implementation
 License:          BSD
 URL:              http://docs.codehaus.org/display/WSTX/StAX2
@@ -13,7 +13,7 @@ BuildArch:        noarch
 Source0:          http://repository.codehaus.org/org/codehaus/woodstox/%{pkg_name}/%{version}/%{pkg_name}-%{version}-sources.jar
 Source1:          http://repository.codehaus.org/org/codehaus/woodstox/%{pkg_name}/%{version}/%{pkg_name}-%{version}.pom
 
-BuildRequires:    %{?scl_prefix_java_common}maven-local
+BuildRequires:    %{?scl_prefix}maven-local
 BuildRequires:    %{?scl_prefix_java_common}bea-stax-api
 
 %description
@@ -59,6 +59,9 @@ set -e -x
 %files javadoc -f .mfiles-javadoc
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 3.1.1-10.11
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 3.1.1-10.10
 - maven33 rebuild #2
 
